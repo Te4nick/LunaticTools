@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@onready var sprites: Array = [
+@onready var sprites: Array = [  # TODO: create propper Character class
 	$Skeleton2D/TorsoBone2D/TorsoSprite2D,
 	$Skeleton2D/TorsoBone2D/HeadBone2D/HeadSprite2D,
 	$Skeleton2D/TorsoBone2D/HeadBone2D/HeadSprite2D/FaceSprite2D,
@@ -15,6 +15,9 @@ extends Node2D
 	$Skeleton2D/TorsoBone2D/LegRightBone2D/LegRightSprite2D,
 	$Skeleton2D/TorsoBone2D/LegRightBone2D/FootRightBone2D/FootRightSprite2D,
 	]
+	
+var weapon: Weapon = null
+	
 
 func set_texture_path(string_path: String) -> void:
 	print(string_path)
@@ -29,10 +32,7 @@ func set_texture(texture: ImageTexture) -> void:
 		sprite.texture = texture
 
 
-func set_random_texture() -> void:
-	pass
-	
-func create_random_skin(merged_image_name: String) -> ImageTexture:
+func create_random_skin(merged_image_name: String) -> ImageTexture:  # TODO: relocate to utility class
 	# Load pixelmaps
 	var faces: Image = load("res://sprites/Faces.png").get_image()
 	var hairs: Image = load("res://sprites/Hairs.png").get_image()
@@ -48,10 +48,10 @@ func create_random_skin(merged_image_name: String) -> ImageTexture:
 	var cropped_image: Image = Image.create(exit_rect.size.x, exit_rect.size.y, false, Image.FORMAT_RGBA8)
 	
 	# Crop Face and Hand
-	var head_count = heads.get_height() / big_crop_rect.size.y
-	var hair_count = hairs.get_height() / big_crop_rect.size.y
-	var face_count = faces.get_height() / big_crop_rect.size.y
-	var outfit_count = outfits.get_height() / big_crop_rect.size.y
+	var head_count: int = heads.get_height() / big_crop_rect.size.y
+	var hair_count: int = hairs.get_height() / big_crop_rect.size.y
+	var face_count: int = faces.get_height() / big_crop_rect.size.y
+	var outfit_count: int = outfits.get_height() / big_crop_rect.size.y
 	var rng_offset: int = rng.randi_range(0, head_count-1)
 	
 	#  Adding Head
@@ -126,10 +126,30 @@ func create_random_skin(merged_image_name: String) -> ImageTexture:
 	var itex: ImageTexture = ImageTexture.new()
 	return itex.create_from_image(cropped_image)
 
+
+func get_weapon() -> Weapon:
+	return self.weapon
+
+
+func set_weapon(weapon: Weapon) -> void:
+	self.weapon = weapon
+	$Skeleton2D/TorsoBone2D/ArmLeftBone2D/HandLeftBone2D.add_child(weapon.get_weapon_node())
+	print_tree_pretty()
+	return
+
+
+func remove_weapon() -> void:
+	if self.weapon:
+		$Skeleton2D/TorsoBone2D/ArmLeftBone2D/HandLeftBone2D.remove_child(weapon.get_weapon_node())
+		self.weapon = null
+	return
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_texture_path("res://sprites/PlayerDummy2.png")
 	set_texture(create_random_skin("testing1.png"))
+	set_weapon(Weapon.new(1))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

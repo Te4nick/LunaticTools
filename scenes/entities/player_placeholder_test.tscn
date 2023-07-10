@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ko8b35bbs4sy"]
 
-[ext_resource type="Script" path="res://scenes/entities/player_placeholder_test.gd" id="1_wppg4"]
+[ext_resource type="Script" path="res://scripts/player_placeholder_test.gd" id="1_ocq8c"]
 [ext_resource type="Texture2D" uid="uid://dflwueble4oi" path="res://sprites/PlayerPlaceholder_V2_2.png" id="2_164wg"]
 
 [sub_resource type="Animation" id="Animation_tj75a"]
@@ -42,7 +42,7 @@ _data = {
 
 [node name="Character" type="Node2D"]
 position = Vector2(42, 109)
-script = ExtResource("1_wppg4")
+script = ExtResource("1_ocq8c")
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
 
@@ -101,6 +101,7 @@ rotation = 0.523598
 rest = Transform2D(0.866026, 0.499999, -0.499999, 0.866026, -11, 38)
 
 [node name="HandLeftSprite2D" type="Sprite2D" parent="Skeleton2D/TorsoBone2D/ArmLeftBone2D/HandLeftBone2D"]
+z_index = 1
 position = Vector2(0, 9)
 texture = ExtResource("2_164wg")
 region_enabled = true
@@ -124,6 +125,7 @@ position = Vector2(-11, 38)
 rest = Transform2D(1, 0, 0, 1, -11, 38)
 
 [node name="HandRightSprite2D" type="Sprite2D" parent="Skeleton2D/TorsoBone2D/ArmRightBone2D/HandRightBone2D"]
+z_index = 1
 position = Vector2(0, 9)
 texture = ExtResource("2_164wg")
 region_enabled = true

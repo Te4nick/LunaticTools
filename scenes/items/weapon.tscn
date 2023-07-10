@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://1p83rpoyle86"]
+
+[ext_resource type="Script" path="res://scripts/weapon_scene.gd" id="1_5d0qg"]
+[ext_resource type="Texture2D" uid="uid://cb3uftgm0aq7l" path="res://sprites/Weapons.png" id="1_j5pek"]
+
+[node name="Weapon" type="Node2D"]
+script = ExtResource("1_5d0qg")
+
+[node name="WeaponSprite2D" type="Sprite2D" parent="."]
+position = Vector2(21, -21)
+texture = ExtResource("1_j5pek")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
