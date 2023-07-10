@@ -11,6 +11,6 @@ config_version=5
 [application]
 
 config/name="Lunatic"
-run/main_scene="res://scenes/entities/player_placeholder_v2.tscn"
+run/main_scene="res://scenes/screens/world_test.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"

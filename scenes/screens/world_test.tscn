@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cucnvlu70o5ii"]
+
+[ext_resource type="Script" path="res://scenes/screens/world_test.gd" id="1_o6fvq"]
+[ext_resource type="PackedScene" uid="uid://c6b32lgryjfmh" path="res://scenes/entities/player_placeholder_armor_test.tscn" id="2_6dvtw"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_o6fvq")
+
+[node name="Character" parent="." instance=ExtResource("2_6dvtw")]
+position = Vector2(96, 145)

@@ -14,9 +14,25 @@ extends Node2D
 	$Skeleton2D/TorsoBone2D/LegLeftBone2D/FootLeftBone2D/FootLeftSprite2D,
 	$Skeleton2D/TorsoBone2D/LegRightBone2D/LegRightSprite2D,
 	$Skeleton2D/TorsoBone2D/LegRightBone2D/FootRightBone2D/FootRightSprite2D,
-	]
+]
+	
+@onready var armor_sprites: Array = [  # TODO: add hands and feet
+	$Skeleton2D/TorsoBone2D/ArmorTorsoSprite2D,
+	$Skeleton2D/TorsoBone2D/HeadBone2D/HeadSprite2D/ArmorHeadSprite2D,
+	$Skeleton2D/TorsoBone2D/ArmLeftBone2D/ArmorArmLeftSprite2D,
+	$Skeleton2D/TorsoBone2D/ArmRightBone2D/ArmorArmRightSprite2D,
+	$Skeleton2D/TorsoBone2D/LegLeftBone2D/ArmorLegLeftSprite2D,
+	$Skeleton2D/TorsoBone2D/LegRightBone2D/ArmorLegRightSprite2D,
+	$Skeleton2D/TorsoBone2D/ArmLeftBone2D/HandLeftBone2D/ArmorHandLeftSprite2D,
+	$Skeleton2D/TorsoBone2D/ArmRightBone2D/HandRightBone2D/ArmorHandRightSprite2D,
+	$Skeleton2D/TorsoBone2D/LegLeftBone2D/FootLeftBone2D/ArmorFootLeftSprite2D,
+	$Skeleton2D/TorsoBone2D/LegRightBone2D/FootRightBone2D/ArmorFootRightSprite2D,
+]
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 	
 var weapon: Weapon = null
+var armor: Armor = null
 	
 
 func set_texture_path(string_path: String) -> void:
@@ -30,6 +46,10 @@ func set_texture_path(string_path: String) -> void:
 func set_texture(texture: ImageTexture) -> void:
 	for sprite in sprites:
 		sprite.texture = texture
+
+
+func play_animation(name: StringName):
+	self.animation_player.play(name)
 
 
 func create_random_skin(merged_image_name: String) -> ImageTexture:  # TODO: relocate to utility class
@@ -123,8 +143,7 @@ func create_random_skin(merged_image_name: String) -> ImageTexture:  # TODO: rel
 	
 	cropped_image.save_png("res://sprites/" + merged_image_name)
 	load("res://sprites/" + merged_image_name)
-	var itex: ImageTexture = ImageTexture.new()
-	return itex.create_from_image(cropped_image)
+	return ImageTexture.create_from_image(cropped_image)
 
 
 func get_weapon() -> Weapon:
@@ -141,6 +160,25 @@ func set_weapon(weapon: Weapon) -> void:
 func remove_weapon() -> void:
 	if self.weapon:
 		$Skeleton2D/TorsoBone2D/ArmLeftBone2D/HandLeftBone2D.remove_child(weapon.get_weapon_node())
+		self.weapon = null
+	return
+
+
+func get_armor() -> Armor:
+	return self.armor
+
+
+func set_armor(armor: Armor) -> void:
+	self.armor = armor
+	for piece in armor_sprites:
+		piece.texture = armor.texture
+	return
+
+
+func remove_armor() -> void:
+	if self.armor:
+		for piece in armor_sprites:
+			piece.texture = null
 		self.weapon = null
 	return
 

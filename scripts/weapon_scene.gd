@@ -6,7 +6,7 @@ var weapon_sprite_region_rect: Rect2 = Rect2(0, 64 * 0, 64, 64)
 var util: Weapon
 
 func set_visuals():
-	self.util = get_tree().get_root().get_node("Character").get_weapon()
+	#self.util = get_tree().get_root().get_node("Character").get_weapon()
 	sprite.region_rect = Rect2(0, 64 * self.util.weapon_id, 64, 64)
 	
 

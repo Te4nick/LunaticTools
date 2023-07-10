@@ -15,22 +15,12 @@ var weapon_root_node: Node2D = weapon_scene.instantiate()
 
 func _init(weapon_id: int):
 	self.weapon_id = weapon_id
-	
+	weapon_root_node.util = self
 
 
-func get_weapon_node():
+func get_weapon_node() -> Node2D:
 	return weapon_root_node
 
-
-func set_sprite():
-	#weapon_sprite.set_region_rect(weapon_sprite_region_rect)
-	#print(weapon_sprite.get_region_rect())
-	#weapon_sprite.texture = load("res://sprites/Faces.png")
-	pass
-
-
-func _ready():
-	set_sprite()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
