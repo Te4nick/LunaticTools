@@ -10,15 +10,23 @@ config_version=5
 
 [application]
 
-config/name="Lunatic"
+config/name="LunaticTools"
 run/main_scene="res://scenes/screens/character_combat_holder.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
+run/size/viewport_height=648
+run/size/viewport_width=1152
+run/name="Lunatic"
 
 [autoload]
 
 WeaponDatabase="*res://scripts/databases/weapon_database.gd"
 ArmorDatabase="*res://scripts/databases/armor_database.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
 
 [input]
 

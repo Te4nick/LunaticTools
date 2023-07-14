@@ -1,0 +1,150 @@
+[gd_scene load_steps=6 format=3 uid="uid://dyuqqjgwm880n"]
+
+[ext_resource type="Texture2D" uid="uid://c3nfaojxt3yo7" path="res://sprites/CharacterTemplate.png" id="1_0kufn"]
+[ext_resource type="Texture2D" uid="uid://bouact4p7725g" path="res://sprites/4260113.png" id="1_b41t0"]
+[ext_resource type="Script" path="res://scripts/asset_editor/display_bg.gd" id="1_d8m0k"]
+[ext_resource type="PackedScene" uid="uid://c6b32lgryjfmh" path="res://scenes/entities/player_placeholder_armor_test.tscn" id="1_htf6g"]
+[ext_resource type="Script" path="res://scripts/asset_editor/char_buttons.gd" id="4_0dv7r"]
+
+[node name="Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopUIHBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorPickerPanel" type="ColorRect" parent="TopUIHBox"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(0.132813, 0.140625, 0.152344, 1)
+
+[node name="LeftNavVBox" type="VBoxContainer" parent="TopUIHBox/ColorPickerPanel"]
+custom_minimum_size = Vector2(200, 720)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="ColorPicker" type="ColorPicker" parent="TopUIHBox/ColorPickerPanel/LeftNavVBox"]
+layout_mode = 2
+
+[node name="PaintingPanel" type="ColorRect" parent="TopUIHBox"]
+z_index = -10
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 100.0
+color = Color(0.148438, 0.160156, 0.175781, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="TopUIHBox/PaintingPanel"]
+visible = false
+position = Vector2(348, 136)
+scale = Vector2(3, 3)
+texture = ExtResource("1_0kufn")
+
+[node name="TextureRect" type="TextureRect" parent="TopUIHBox/PaintingPanel"]
+custom_minimum_size = Vector2(680, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -113.333
+offset_bottom = 113.333
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0kufn")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="PreviewPanel" type="ColorRect" parent="TopUIHBox"]
+z_index = -10
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+color = Color(0.132813, 0.140625, 0.152344, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TopUIHBox/PreviewPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="TopUIHBox/PreviewPanel/VBoxContainer"]
+z_index = 1
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+script = ExtResource("1_d8m0k")
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="TopUIHBox/PreviewPanel/VBoxContainer/ColorRect"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_bottom = 50.0
+grow_horizontal = 0
+icon = ExtResource("1_b41t0")
+icon_alignment = 1
+expand_icon = true
+color = Color(1, 1, 1, 1)
+edit_alpha = false
+
+[node name="PickerLabel" type="Label" parent="TopUIHBox/PreviewPanel/VBoxContainer/ColorRect/ColorPickerButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -13.0
+offset_right = 11.5
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "BG"
+
+[node name="Character" parent="TopUIHBox/PreviewPanel/VBoxContainer/ColorRect" instance=ExtResource("1_htf6g")]
+top_level = true
+position = Vector2(1128, 194)
+scale = Vector2(2, 2)
+
+[node name="CharButtons" type="HBoxContainer" parent="TopUIHBox/PreviewPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+script = ExtResource("4_0dv7r")
+
+[node name="ArmorToggle" type="CheckButton" parent="TopUIHBox/PreviewPanel/VBoxContainer/CharButtons"]
+layout_mode = 2
+button_pressed = true
+text = "Armor"
+
+[node name="WeaponToggle" type="CheckButton" parent="TopUIHBox/PreviewPanel/VBoxContainer/CharButtons"]
+layout_mode = 2
+button_pressed = true
+text = "Weapon"
+
+[connection signal="resized" from="." to="TopUIHBox/PreviewPanel/VBoxContainer/CharButtons" method="_on_screen_resized"]
+[connection signal="color_changed" from="TopUIHBox/PreviewPanel/VBoxContainer/ColorRect/ColorPickerButton" to="TopUIHBox/PreviewPanel/VBoxContainer/ColorRect" method="_on_color_picker_button_color_changed"]
+[connection signal="toggled" from="TopUIHBox/PreviewPanel/VBoxContainer/CharButtons/ArmorToggle" to="TopUIHBox/PreviewPanel/VBoxContainer/CharButtons" method="_on_armor_toggle_toggled"]
+[connection signal="toggled" from="TopUIHBox/PreviewPanel/VBoxContainer/CharButtons/WeaponToggle" to="TopUIHBox/PreviewPanel/VBoxContainer/CharButtons" method="_on_weapon_toggle_toggled"]

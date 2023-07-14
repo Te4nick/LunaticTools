@@ -297,18 +297,23 @@ texture = ExtResource("2_ths67")
 region_enabled = true
 region_rect = Rect2(0, 0, 64, 64)
 
-[node name="FaceSprite2D" type="Sprite2D" parent="Skeleton2D/TorsoBone2D/HeadBone2D/HeadSprite2D"]
+[node name="FaceSprite2D" type="Sprite2D" parent="Skeleton2D/TorsoBone2D/HeadBone2D"]
+position = Vector2(8.00001, -0.999973)
+rotation = 1.57079
 texture = ExtResource("2_ths67")
 region_enabled = true
 region_rect = Rect2(64, 64, 64, 64)
 
-[node name="ArmorHeadSprite2D" type="Sprite2D" parent="Skeleton2D/TorsoBone2D/HeadBone2D/HeadSprite2D"]
-position = Vector2(-3.8147e-06, 7.62939e-06)
+[node name="ArmorHeadSprite2D" type="Sprite2D" parent="Skeleton2D/TorsoBone2D/HeadBone2D"]
+position = Vector2(8, -0.999973)
+rotation = 1.57079
 scale = Vector2(1.05, 1.05)
 region_enabled = true
 region_rect = Rect2(0, 0, 64, 64)
 
-[node name="HairSprite2D" type="Sprite2D" parent="Skeleton2D/TorsoBone2D/HeadBone2D/HeadSprite2D"]
+[node name="HairSprite2D" type="Sprite2D" parent="Skeleton2D/TorsoBone2D/HeadBone2D"]
+position = Vector2(8.00001, -0.999973)
+rotation = 1.57079
 texture = ExtResource("2_ths67")
 region_enabled = true
 region_rect = Rect2(0, 64, 64, 64)

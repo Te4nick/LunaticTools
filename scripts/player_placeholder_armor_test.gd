@@ -4,8 +4,8 @@ extends Node2D
 @onready var sprites: Array = [  # TODO: create propper Character class
 	$Skeleton2D/TorsoBone2D/TorsoSprite2D,
 	$Skeleton2D/TorsoBone2D/HeadBone2D/HeadSprite2D,
-	$Skeleton2D/TorsoBone2D/HeadBone2D/HeadSprite2D/FaceSprite2D,
-	$Skeleton2D/TorsoBone2D/HeadBone2D/HeadSprite2D/HairSprite2D,
+	$Skeleton2D/TorsoBone2D/HeadBone2D/FaceSprite2D,
+	$Skeleton2D/TorsoBone2D/HeadBone2D/HairSprite2D,
 	$Skeleton2D/TorsoBone2D/ArmLeftBone2D/ArmLeftSprite2D,
 	$Skeleton2D/TorsoBone2D/ArmLeftBone2D/HandLeftBone2D/HandLeftSprite2D,
 	$Skeleton2D/TorsoBone2D/ArmRightBone2D/ArmRightSprite2D,
@@ -18,7 +18,7 @@ extends Node2D
 	
 @onready var armor_sprites: Array = [  # TODO: add hands and feet
 	$Skeleton2D/TorsoBone2D/ArmorTorsoSprite2D,
-	$Skeleton2D/TorsoBone2D/HeadBone2D/HeadSprite2D/ArmorHeadSprite2D,
+	$Skeleton2D/TorsoBone2D/HeadBone2D/ArmorHeadSprite2D,
 	$Skeleton2D/TorsoBone2D/ArmLeftBone2D/ArmorArmLeftSprite2D,
 	$Skeleton2D/TorsoBone2D/ArmRightBone2D/ArmorArmRightSprite2D,
 	$Skeleton2D/TorsoBone2D/LegLeftBone2D/ArmorLegLeftSprite2D,
