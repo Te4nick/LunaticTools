@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Armor" load_steps=3 format=3 uid="uid://cka7jg126amur"]
+
+[ext_resource type="Script" path="res://scripts/resource_scripts/armor.gd" id="1_h1bl1"]
+[ext_resource type="Texture2D" uid="uid://bsos0phvrsng2" path="res://sprites/Armors.png" id="2_qb5ax"]
+
+[resource]
+script = ExtResource("1_h1bl1")
+id = 2
+object_class = 5
+name = "O5 Disguise"
+defence = 25
+texture = ExtResource("2_qb5ax")
+texture_region_rect = Rect2(0, 64, 192, 64)

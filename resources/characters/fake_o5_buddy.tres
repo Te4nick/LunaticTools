@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Character" load_steps=5 format=3 uid="uid://dn6swqcs6tihk"]
+
+[ext_resource type="Script" path="res://scripts/resource_scripts/character.gd" id="1_1tbgb"]
+[ext_resource type="Resource" uid="uid://cka7jg126amur" path="res://resources/armors/o5.tres" id="1_7ax25"]
+[ext_resource type="Texture2D" uid="uid://bowy8mqvfejc8" path="res://sprites/yellowstone.png" id="3_srrpl"]
+[ext_resource type="Resource" uid="uid://c7rdyu0pca2pq" path="res://resources/weapons/dragonslayer.tres" id="4_3xu7v"]
+
+[resource]
+script = ExtResource("1_1tbgb")
+name = "Yellowstone"
+max_hp = 110
+current_hp = 110
+max_sp = 100
+current_sp = 50
+texture = ExtResource("3_srrpl")
+armor = ExtResource("1_7ax25")
+weapon = ExtResource("4_3xu7v")

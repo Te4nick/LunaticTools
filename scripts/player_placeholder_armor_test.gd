@@ -37,6 +37,7 @@ var _weapon_node_exist: bool = false
 
 func set_data(char_data: Character):
 	self.data = char_data
+	set_texture(data.texture)
 	set_weapon(WeaponDatabase.get_weapon(self.data.weapon.name))
 	set_armor(ArmorDatabase.get_armor(self.data.armor.name))
 	
@@ -50,7 +51,7 @@ func set_texture_path(string_path: String) -> void:
 			sprite.texture = texture
 
 
-func set_texture(texture: ImageTexture) -> void:
+func set_texture(texture: Texture) -> void:
 	for sprite in sprites:
 		sprite.texture = texture
 

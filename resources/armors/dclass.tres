@@ -10,4 +10,4 @@ object_class = 0
 name = "D Class robe"
 defence = 10
 texture = ExtResource("2_fmr80")
-texture_region_rect = Rect2(0, 64, 192, 64)
+texture_region_rect = Rect2(0, 0, 192, 64)

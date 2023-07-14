@@ -277,7 +277,7 @@ region_enabled = true
 region_rect = Rect2(64, 0, 64, 64)
 
 [node name="ArmorTorsoSprite2D" type="Sprite2D" parent="Skeleton2D/TorsoBone2D"]
-position = Vector2(4, -24)
+position = Vector2(0, -24)
 scale = Vector2(1.05, 1.05)
 region_enabled = true
 region_rect = Rect2(64, 0, 64, 64)
@@ -330,7 +330,7 @@ region_rect = Rect2(128, 0, 32, 44)
 
 [node name="ArmorArmLeftSprite2D" type="Sprite2D" parent="Skeleton2D/TorsoBone2D/ArmLeftBone2D"]
 z_index = -1
-position = Vector2(-2.07178, 19.5885)
+position = Vector2(-6.03589, 18.4545)
 rotation = 0.261799
 scale = Vector2(1.05, 1.05)
 skew = -0.000163794
@@ -354,7 +354,8 @@ region_rect = Rect2(128, 44, 32, 19)
 
 [node name="ArmorHandLeftSprite2D" type="Sprite2D" parent="Skeleton2D/TorsoBone2D/ArmLeftBone2D/HandLeftBone2D"]
 z_index = 1
-position = Vector2(1.52631, 9.59103)
+position = Vector2(5.52631, 9.59103)
+scale = Vector2(1.05, 1.05)
 flip_h = true
 region_enabled = true
 region_rect = Rect2(128, 44, 32, 19)
@@ -373,7 +374,7 @@ region_enabled = true
 region_rect = Rect2(128, 0, 32, 44)
 
 [node name="ArmorArmRightSprite2D" type="Sprite2D" parent="Skeleton2D/TorsoBone2D/ArmRightBone2D"]
-position = Vector2(-2, 18)
+position = Vector2(-6, 18)
 rotation = 0.261799
 scale = Vector2(0.999981, 1.00005)
 skew = -0.000163794
@@ -396,7 +397,8 @@ region_rect = Rect2(128, 44, 32, 19)
 
 [node name="ArmorHandRightSprite2D" type="Sprite2D" parent="Skeleton2D/TorsoBone2D/ArmRightBone2D/HandRightBone2D"]
 z_index = 1
-position = Vector2(3, 8)
+position = Vector2(0, 9)
+scale = Vector2(1.05, 1.05)
 region_enabled = true
 region_rect = Rect2(128, 44, 32, 19)
 
@@ -413,7 +415,7 @@ region_rect = Rect2(128, 64, 32, 44)
 
 [node name="ArmorLegLeftSprite2D" type="Sprite2D" parent="Skeleton2D/TorsoBone2D/LegLeftBone2D"]
 z_index = -1
-position = Vector2(5, 15)
+position = Vector2(0, 15)
 scale = Vector2(1.05, 1.05)
 region_enabled = true
 region_rect = Rect2(160, 0, 32, 44)
@@ -432,7 +434,8 @@ region_enabled = true
 region_rect = Rect2(128, 108, 32, 20)
 
 [node name="ArmorFootLeftSprite2D" type="Sprite2D" parent="Skeleton2D/TorsoBone2D/LegLeftBone2D/FootLeftBone2D"]
-position = Vector2(5, 13)
+position = Vector2(0, 12)
+scale = Vector2(1.05, 1.05)
 region_enabled = true
 region_rect = Rect2(160, 44, 32, 20)
 
@@ -449,7 +452,7 @@ region_rect = Rect2(128, 64, 32, 44)
 
 [node name="ArmorLegRightSprite2D" type="Sprite2D" parent="Skeleton2D/TorsoBone2D/LegRightBone2D"]
 z_index = -1
-position = Vector2(5, 15)
+position = Vector2(0, 15)
 scale = Vector2(1.05, 1.05)
 region_enabled = true
 region_rect = Rect2(160, 0, 32, 44)
@@ -468,7 +471,8 @@ region_enabled = true
 region_rect = Rect2(128, 108, 32, 20)
 
 [node name="ArmorFootRightSprite2D" type="Sprite2D" parent="Skeleton2D/TorsoBone2D/LegRightBone2D/FootRightBone2D"]
-position = Vector2(4, 13)
+position = Vector2(-1, 12)
+scale = Vector2(1.05, 1.05)
 region_enabled = true
 region_rect = Rect2(160, 44, 32, 20)
 

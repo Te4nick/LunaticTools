@@ -41,7 +41,7 @@ func update_sp(sp: int = 0):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	data = load("res://resources/characters/placeholder_character.tres")
+	data = load("res://resources/characters/fake_o5_buddy.tres")
 	character.set_data(data)
 	test_setup()
 

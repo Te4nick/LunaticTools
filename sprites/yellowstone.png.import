@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bowy8mqvfejc8"
-path="res://.godot/imported/testing1.png-a82efe720336e5327c76a9fc179daefe.ctex"
+path="res://.godot/imported/yellowstone.png-c5c55d5b4eec1a5a069c495b20b129f5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/testing1.png"
-dest_files=["res://.godot/imported/testing1.png-a82efe720336e5327c76a9fc179daefe.ctex"]
+source_file="res://sprites/yellowstone.png"
+dest_files=["res://.godot/imported/yellowstone.png-c5c55d5b4eec1a5a069c495b20b129f5.ctex"]
 
 [params]
 
