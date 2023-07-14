@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://c7rdyu0pca2pq"]
+
+[ext_resource type="Script" path="res://scripts/resource_scripts/weapon.gd" id="1_guk5k"]
+[ext_resource type="Texture2D" uid="uid://cb3uftgm0aq7l" path="res://sprites/Weapons.png" id="2_py6k1"]
+
+[resource]
+script = ExtResource("1_guk5k")
+id = 0
+object_class = 2
+name = "DragonSlayer"
+melee = true
+min_damage = 10
+max_damage = 15
+socket_count = 3
+texture = ExtResource("2_py6k1")
+texture_region_rect = Rect2(0, 0, 64, 64)
+texture_position_offset = Vector2(23, -23)
+texture_rotation_degrees = 0.0

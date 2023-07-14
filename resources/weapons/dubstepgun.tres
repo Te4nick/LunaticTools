@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://cuni71yg8blm"]
+
+[ext_resource type="Script" path="res://scripts/resource_scripts/weapon.gd" id="1_ypcm7"]
+[ext_resource type="Texture2D" uid="uid://cb3uftgm0aq7l" path="res://sprites/Weapons.png" id="2_6qgnm"]
+
+[resource]
+script = ExtResource("1_ypcm7")
+id = 0
+object_class = 1
+name = "DubstepGun"
+melee = false
+min_damage = 15
+max_damage = 20
+socket_count = 2
+texture = ExtResource("2_6qgnm")
+texture_region_rect = Rect2(0, 64, 64, 64)
+texture_position_offset = Vector2(8, 7)
+texture_rotation_degrees = 90.0

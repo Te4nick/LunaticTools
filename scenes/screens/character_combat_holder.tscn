@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://2kmh1ayqys2g"]
+
+[ext_resource type="Script" path="res://scripts/character_combat_holder.gd" id="1_0nimq"]
+[ext_resource type="PackedScene" uid="uid://c6b32lgryjfmh" path="res://scenes/entities/player_placeholder_armor_test.tscn" id="2_tt11r"]
+
+[node name="Root" type="Control"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 200.0
+script = ExtResource("1_0nimq")
+
+[node name="Character" parent="." instance=ExtResource("2_tt11r")]
+position = Vector2(100, 98)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginTop" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 150
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="MarginLeft" type="MarginContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameDisplay" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Placeholder"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginRight" type="MarginContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CurrentSp" type="Label" parent="VBoxContainer/GridContainer/MarginRight"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "50"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="CurrentHp" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HpBar" type="ProgressBar" parent="VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+step = 1.0
+show_percentage = false
+
+[node name="SpBar" type="ProgressBar" parent="VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+step = 1.0
+fill_mode = 3
+show_percentage = false

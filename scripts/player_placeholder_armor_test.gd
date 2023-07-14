@@ -30,10 +30,17 @@ extends Node2D
 ]
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+var data: Character
+var _weapon_node_exist: bool = false
+
+
+func set_data(char_data: Character):
+	self.data = char_data
+	set_weapon(WeaponDatabase.get_weapon(self.data.weapon.name))
+	set_armor(ArmorDatabase.get_armor(self.data.armor.name))
 	
-var weapon: Weapon = null
-var armor: Armor = null
-	
+
 
 func set_texture_path(string_path: String) -> void:
 	print(string_path)
@@ -147,39 +154,44 @@ func create_random_skin(merged_image_name: String) -> ImageTexture:  # TODO: rel
 
 
 func get_weapon() -> Weapon:
-	return self.weapon
+	return self.data.weapon
 
 
 func set_weapon(weapon: Weapon) -> void:
-	self.weapon = weapon
-	$Skeleton2D/TorsoBone2D/ArmLeftBone2D/HandLeftBone2D.add_child(weapon.get_weapon_node())
-	print_tree_pretty()
+	if weapon:
+		self.remove_weapon()
+		self.data.weapon = weapon
+		$Skeleton2D/TorsoBone2D/ArmLeftBone2D/HandLeftBone2D.add_child(self.data.weapon.node)
+		_weapon_node_exist = true
 	return
 
 
 func remove_weapon() -> void:
-	if self.weapon:
-		$Skeleton2D/TorsoBone2D/ArmLeftBone2D/HandLeftBone2D.remove_child(weapon.get_weapon_node())
-		self.weapon = null
+	if self.data.weapon and _weapon_node_exist:
+		$Skeleton2D/TorsoBone2D/ArmLeftBone2D/HandLeftBone2D.remove_child(self.data.weapon.node)
+		_weapon_node_exist = false
+		self.data.weapon = null
 	return
 
 
 func get_armor() -> Armor:
-	return self.armor
+	return self.data.armor
 
 
 func set_armor(armor: Armor) -> void:
-	self.armor = armor
-	for piece in armor_sprites:
-		piece.texture = armor.texture
+	if armor:
+		self.remove_armor()
+		self.data.armor = armor
+		for piece in armor_sprites:
+			piece.texture = armor.texture
 	return
 
 
 func remove_armor() -> void:
-	if self.armor:
+	if self.data.armor:
 		for piece in armor_sprites:
 			piece.texture = null
-		self.weapon = null
+		self.data.armor = null
 	return
 
 

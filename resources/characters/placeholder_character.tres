@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Character" load_steps=5 format=3 uid="uid://d23ojfqdqbn6s"]
+
+[ext_resource type="Script" path="res://scripts/resource_scripts/character.gd" id="1_q3eys"]
+[ext_resource type="Resource" uid="uid://cw4kuoadjbrkp" path="res://resources/armors/dclass.tres" id="1_y6i2j"]
+[ext_resource type="Texture2D" uid="uid://dflwueble4oi" path="res://sprites/PlayerPlaceholder_V2_2.png" id="2_cu2bv"]
+[ext_resource type="Resource" uid="uid://cuni71yg8blm" path="res://resources/weapons/dubstepgun.tres" id="3_ibecq"]
+
+[resource]
+script = ExtResource("1_q3eys")
+name = "Placeholder"
+max_hp = 105
+current_hp = 105
+max_sp = 100
+current_sp = 50
+texture = ExtResource("2_cu2bv")
+armor = ExtResource("1_y6i2j")
+weapon = ExtResource("3_ibecq")

@@ -7,7 +7,14 @@
 script = ExtResource("1_5d0qg")
 
 [node name="WeaponSprite2D" type="Sprite2D" parent="."]
-position = Vector2(21, -21)
+position = Vector2(8, 7)
 texture = ExtResource("1_j5pek")
 region_enabled = true
-region_rect = Rect2(0, 0, 64, 64)
+region_rect = Rect2(0, 64, 64, 64)
+
+[node name="WeaponSprite2D2" type="Sprite2D" parent="WeaponSprite2D"]
+visible = false
+position = Vector2(64, 0)
+texture = ExtResource("1_j5pek")
+region_enabled = true
+region_rect = Rect2(0, 64, 64, 64)
