@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dyuqqjgwm880n"]
+[gd_scene load_steps=8 format=3 uid="uid://dyuqqjgwm880n"]
 
 [ext_resource type="Texture2D" uid="uid://c3nfaojxt3yo7" path="res://sprites/CharacterTemplate.png" id="1_0kufn"]
+[ext_resource type="Script" path="res://scripts/asset_editor/painting_panel.gd" id="1_2omaf"]
 [ext_resource type="Texture2D" uid="uid://bouact4p7725g" path="res://sprites/4260113.png" id="1_b41t0"]
 [ext_resource type="Script" path="res://scripts/asset_editor/display_bg.gd" id="1_d8m0k"]
+[ext_resource type="Texture2D" uid="uid://b7ayfuao2dopi" path="res://sprites/CharacterTemplateMask.png" id="1_e46j6"]
 [ext_resource type="PackedScene" uid="uid://c6b32lgryjfmh" path="res://scenes/entities/player_placeholder_armor_test.tscn" id="1_htf6g"]
 [ext_resource type="Script" path="res://scripts/asset_editor/char_buttons.gd" id="4_0dv7r"]
 
@@ -50,14 +52,25 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 100.0
 color = Color(0.148438, 0.160156, 0.175781, 1)
+script = ExtResource("1_2omaf")
 
-[node name="Sprite2D" type="Sprite2D" parent="TopUIHBox/PaintingPanel"]
-visible = false
-position = Vector2(348, 136)
-scale = Vector2(3, 3)
-texture = ExtResource("1_0kufn")
+[node name="EditorButtons" type="HBoxContainer" parent="TopUIHBox/PaintingPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
 
-[node name="TextureRect" type="TextureRect" parent="TopUIHBox/PaintingPanel"]
+[node name="MaskToggle" type="CheckButton" parent="TopUIHBox/PaintingPanel/EditorButtons"]
+layout_mode = 2
+button_pressed = true
+text = "Mask"
+
+[node name="TemplateToggle" type="CheckButton" parent="TopUIHBox/PaintingPanel/EditorButtons"]
+layout_mode = 2
+button_pressed = true
+text = "Template"
+
+[node name="TextureMask" type="TextureRect" parent="TopUIHBox/PaintingPanel"]
 custom_minimum_size = Vector2(680, 0)
 layout_mode = 1
 anchors_preset = 14
@@ -68,9 +81,26 @@ offset_top = -113.333
 offset_bottom = 113.333
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_0kufn")
+texture = ExtResource("1_e46j6")
 expand_mode = 5
 stretch_mode = 4
+
+[node name="TextureTemplate" type="TextureRect" parent="TopUIHBox/PaintingPanel/TextureMask"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0kufn")
+
+[node name="Control" type="Control" parent="TopUIHBox/PaintingPanel/TextureMask"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="PreviewPanel" type="ColorRect" parent="TopUIHBox"]
 z_index = -10
@@ -145,6 +175,7 @@ button_pressed = true
 text = "Weapon"
 
 [connection signal="resized" from="." to="TopUIHBox/PreviewPanel/VBoxContainer/CharButtons" method="_on_screen_resized"]
+[connection signal="toggled" from="TopUIHBox/PaintingPanel/EditorButtons/MaskToggle" to="TopUIHBox/PaintingPanel" method="_on_mask_toggle_toggled"]
 [connection signal="color_changed" from="TopUIHBox/PreviewPanel/VBoxContainer/ColorRect/ColorPickerButton" to="TopUIHBox/PreviewPanel/VBoxContainer/ColorRect" method="_on_color_picker_button_color_changed"]
 [connection signal="toggled" from="TopUIHBox/PreviewPanel/VBoxContainer/CharButtons/ArmorToggle" to="TopUIHBox/PreviewPanel/VBoxContainer/CharButtons" method="_on_armor_toggle_toggled"]
 [connection signal="toggled" from="TopUIHBox/PreviewPanel/VBoxContainer/CharButtons/WeaponToggle" to="TopUIHBox/PreviewPanel/VBoxContainer/CharButtons" method="_on_weapon_toggle_toggled"]
